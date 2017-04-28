@@ -15,7 +15,7 @@ module ExceptionNotification
         :payload       => payload,
         :error_class   => exception.class.name,
         :error_message => exception.message,
-        exception: exception.inspect
+        exception: exception.cause.inspect
       }
 
       ExceptionNotifier.notify_exception(exception, :data => { :resque => data })
